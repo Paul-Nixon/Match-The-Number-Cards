@@ -1,0 +1,103 @@
+/* General Styles START */
+*, *::before, *::after
+{
+    box-sizing: border-box;
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    font-size: 100%; /* To set the rem equal to any browser's default font-size */
+    height: 100%; /* To keep the footer at the bottom of the screen */
+}
+
+body
+{
+    /* General styles */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.3;
+
+    /* Keep the footer at the bottom of the screen */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.content-section /* So each webpage's main content won't touch the header, footer, and sides of the screen */
+{
+    margin: 1em;
+}
+
+.container /* Contains a webpage's main content */
+{
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.btn /* For all the website's buttons */
+{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.67em;
+    font-weight: bold;
+    outline: none;
+}
+
+.section-title
+{
+    font-weight: normal;
+    text-align: center;
+    font-size: 2.5em;
+    color: #D80000;
+    text-transform: uppercase;
+}
+/* General Styles END */
+
+
+/* Header Styles START */
+header
+{
+
+}
+/* Header Styles END */
+
+
+/* Footer Styles START */
+footer
+{
+    margin-top: auto; /* To push it to the bottom of the screen */
+}
+/* Footer Styles END */
+
+
+/* index.html Styles START */
+/* index.html Styles END */
+
+
+/* about.html Styles START */
+/* about.html Styles END */
+
+
+/* how_to_play.html Styles START */
+/* how_to_play.html Styles END */
+
+
+/* match_the_number_cards.html Styles START */
+/* match_the_number_cards.html Styles END */
+
+
+/* Media Styles START */
+/* Media Styles END */
