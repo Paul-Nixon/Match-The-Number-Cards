@@ -21,6 +21,7 @@ body
     /* General styles */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.3;
+    background-color: #ff7251;
 
     /* Keep the footer at the bottom of the screen */
     min-height: 100%;
@@ -61,7 +62,7 @@ a
     font-weight: normal;
     text-align: center;
     font-size: 2.5em;
-    color: #D80000;
+    color: #98ff98; /* Mint green */
     text-transform: uppercase;
 }
 /* General Styles END */
@@ -70,7 +71,54 @@ a
 /* Header Styles START */
 header
 {
+    position: relative;
+    padding: 0.5rem;
+    transition: background-color 300ms ease-in-out;
+}
 
+.website-links /* Consists of the website's internal links and the header's menu button */
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.website-title /* The website's title */
+{
+    color: green;
+    font-style: italic;
+}
+
+/* Styles for the header's links */
+.header-links a
+{
+    display: inline-block;
+    font-size: 1.25rem;
+    padding: 0.5em;
+    color: white;
+    transition: background-color 300ms ease-in-out;
+}
+
+.header-links a:not(:last-child)
+{
+    margin-right: 0.5rem;
+}
+
+.header-links a:hover
+{
+    background-color: black;
+}
+
+/* Mobile content Styles */
+.fa-bars /* Hamburger menu for mobile */
+{
+    cursor: pointer;
+    display: none;
+}
+
+.header-menu /* Appears only for mobile */
+{
+    display: none;
 }
 /* Header Styles END */
 
@@ -100,4 +148,38 @@ footer
 
 
 /* Media Styles START */
+@media (max-width: 23.75rem) /* Equivalent to 380px */
+{
+    /* Header Styles START */
+    header
+    {
+        background-color: white;
+    }
+
+    .header-links
+    {
+        display: none;
+    }
+
+    .website-title
+    {
+        
+    }
+
+    .fa-bars
+    {
+        display: block;
+    }
+
+    .header-menu
+    {
+
+    }
+
+    .header-menu a
+    {
+
+    }
+    /* Header Styles END */
+}
 /* Media Styles END */
