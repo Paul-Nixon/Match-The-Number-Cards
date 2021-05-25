@@ -65,6 +65,106 @@ a
     color: #98ff98; /* Mint green */
     text-transform: uppercase;
 }
+
+/* Styles for fade-in & fade-out animations */
+.has-fade 
+{
+    visibility: hidden;
+}
+
+.fade-in
+{
+    animation: fade-in 200ms ease-in-out forwards;
+}
+
+.fade-out
+{
+    animation: fade-out 200ms ease-in-out forwards;;
+}
+
+@-webkit-keyframes fade-in
+{
+    from
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1%
+    {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in
+{
+    from
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1%
+    {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-out
+{
+    from
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    99%
+    {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out
+{
+    from
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    99%
+    {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
 /* General Styles END */
 
 
@@ -72,8 +172,18 @@ a
 header
 {
     position: relative;
-    padding: 0.5rem;
-    transition: background-color 300ms ease-in-out;
+    z-index: 1;
+}
+
+.overlay
+{
+    position: fixed;
+    opacity: 0;
+    top: 3.625rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(#333, transparent);
 }
 
 .website-links /* Consists of the website's internal links and the header's menu button */
@@ -81,6 +191,9 @@ header
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
 }
 
 .website-title /* The website's title */
@@ -110,15 +223,27 @@ header
 }
 
 /* Mobile content Styles */
-.fa-bars /* Hamburger menu for mobile */
+.fa-bars
 {
     cursor: pointer;
     display: none;
 }
 
-.header-menu /* Appears only for mobile */
+.header-menu
 {
-    display: none;
+    display: absolute;
+    width: 100%;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    background-color: white;
+}
+
+.header-menu a
+{
+    display: block;
+    text-align: center;
+    padding: 0.625rem;
+    color: black;
 }
 /* Header Styles END */
 
@@ -151,11 +276,10 @@ footer
 @media (max-width: 23.75rem) /* Equivalent to 380px */
 {
     /* Header Styles START */
-    header
+    .website-links
     {
         background-color: white;
     }
-
     .header-links
     {
         display: none;
@@ -163,22 +287,24 @@ footer
 
     .website-title
     {
-        
+        font-size: larger;
+        padding-left: 0.25rem;
     }
 
     .fa-bars
     {
         display: block;
+        padding-right: 0.25rem;
     }
 
-    .header-menu
+    .active-fa-bars
     {
-
+        color: green;
     }
-
-    .header-menu a
+    
+    .header-menu a:hover
     {
-
+        
     }
     /* Header Styles END */
 }
