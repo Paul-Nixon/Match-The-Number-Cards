@@ -5,23 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match The Number Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="website.css">
+    <script src="header_menu.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
+        <div class="overlay has-fade"></div>
+        
+        <nav class="website-links">
+            <a href="/">
+                <h1 class="website-title">Match-the-Number-Cards</h1>
+            </a>
 
+            <div class="header-links">
+                <a href="/">Home</a>
+                <a href="about.html">About</a>
+                <a href="how_to_play.html">How-to-Play</a>
+                <a href="match_the_number_cards.html">Play Game</a>
+            </div>
+
+            <i class="fa fa-bars" style="font-size: 1.875rem;"></i>
+        </nav>
+
+        <div class="header-menu has-fade">
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="how_to_play.html">How-to-Play</a>
+            <a href="match_the_number_cards.html">Play Game</a>
+        </div>
     </header>
 
     <!-- Main Section -->
-    <section>
-        <div>
+    <section class="content-section">
+        <div class="container game-container">
+            <div class="grid-flip-card flip-card-1">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="img-card"></div>
+                  </div>
 
+                  <div class="flip-card-back">
+                    <span class="card-num">1</span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="grid-flip-card flip-card-2">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="img-card"></div>
+                  </div>
+
+                  <div class="flip-card-back">
+                    <span class="card-num">1</span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="grid-flip-card flip-card-3">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="img-card"></div>
+                  </div>
+
+                  <div class="flip-card-back">
+                    <span class="card-num">1</span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="grid-flip-card flip-card-4">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="img-card"></div>
+                  </div>
+
+                  <div class="flip-card-back">
+                    <span class="card-num">1</span>
+                  </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        
+        <span class="copyright">&copy; Paul-Vance Nixon Jr. All rights reserved.</span>
+
+        <div class="footer-social-links">
+            <a href="#" class="fa fa-twitter"></a>
+        </div>
     </footer>
 </body>
 </html>

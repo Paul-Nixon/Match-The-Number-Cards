@@ -173,6 +173,7 @@ header
 {
     position: relative;
     z-index: 1;
+    background-color: brown;
 }
 
 .overlay
@@ -198,8 +199,9 @@ header
 
 .website-title /* The website's title */
 {
-    color: green;
+    color: lightgreen;
     font-style: italic;
+    padding-left: 0.25rem;
 }
 
 /* Styles for the header's links */
@@ -235,18 +237,17 @@ header
     transition: color 200ms ease-in-out;
 }
 
-.header-menu
+.header-menu /* The mobile links' container */
 {
-    display: absolute;
+    display: block;
     width: 100%;
-    padding: 1.25rem;
-    margin-top: 1rem;
+    padding: 0.625rem;
     background-color: white;
 }
 
-.header-menu a
+.header-menu a /* The mobile links */
 {
-    display: block;
+    display: none;
     text-align: center;
     padding: 0.625rem;
     color: black;
@@ -265,6 +266,47 @@ header
 footer
 {
     margin-top: auto; /* To push it to the bottom of the screen */
+    background-color: black;
+    font-size: 1rem;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+
+.copyright
+{
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.fa-twitter, .fa-facebook, .fa-instagram
+{
+    font-size: 1.875rem;
+    text-align: center;
+    background: whitesmoke;
+    border-radius: 50%;
+    padding: 0.25em;
+}
+
+.fa-twitter:hover, .fa-facebook:hover, .fa-instagram:hover
+{
+    opacity: 0.6;
+}
+
+footer, .footer-social-links
+{
+    display: flex;
+    align-items: center;
+}
+
+.footer-social-links
+{
+    justify-content: center;
+}
+
+.footer-social-links a:not(:last-child)
+{
+    margin-right: 0.5rem;
 }
 /* Footer Styles END */
 
@@ -272,67 +314,177 @@ footer
 /* index.html Styles START */
 .intro-container
 {
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .cta-wrapper
 {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 1rem;
 }
 
 .intro-title
 {
-
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .subtitle
 {
-
+    font-size: 1.25rem;
+    font-weight: 525;
+    margin-bottom: 1rem;
 }
 
 .btn-wrapper
 {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-link-btn, .about-link-btn
 {
-
+    border-radius: 0.625rem;
+    font-size: 1.25rem;
+    transition: background-color 300ms ease-in-out;
 }
 
 .game-link-btn
 {
-
+    margin-right: 0.5rem;
+    background-color: yellow;
+    border: 3px solid navy;
 }
 
 .game-link-btn:hover
 {
-
+    background-color: rgb(199, 199, 27);
 }
 
 .about-link-btn
 {
-
+    background-color: blue;
+    color: darkgrey;
+    border: 3px solid yellow;
 }
 
 .about-link-btn:hover
 {
-
+    background-color: rgb(38, 38, 138);
 }
 
 .img-wrapper
 {
-
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
 }
 
 .game-example-img
 {
-    
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 /* index.html Styles END */
 
 
 /* about.html Styles START */
+.about-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.name-and-pfp-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name
+{
+    font-weight: normal;
+    text-align: center;
+    font-size: 2.25em;
+    margin-bottom: 0.25em;
+}
+
+.pfp
+{
+    margin: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: green 0px 0px 20px;
+}
+
+.name, .profile-text
+{
+    color: white;
+}
+
+.profile-text
+{
+    text-align: center;
+    font-size: large;
+    font-weight: 550;
+    margin: 0;
+}
+
+.social-links-wrapper
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-linkedin, .fa-github
+{
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+}
+
+.fa-linkedin
+{
+    background: #007bb5;
+    margin-right: 0.625rem;
+}
+
+.fa-linkedin:hover
+{
+    background: #32a7dd;
+}
+
+.fa-github
+{
+    background: #050708;
+}
+
+.fa-github:hover
+{
+    background: #1f313a;
+}
 /* about.html Styles END */
 
 
@@ -341,13 +493,85 @@ footer
 
 
 /* match_the_number_cards.html Styles START */
+.game-container
+{
+    display: grid;
+    grid-template-columns: repeat(2, 12.5rem);
+    grid-template-rows: repeat(2, 12.5rem);
+    column-gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.grid-flip-card
+{
+
+}
+
+.flip-card-inner
+{
+
+}
+
+.flip-card-front
+{
+
+}
+
+.img-card
+{
+
+}
+
+.flip-card-back
+{
+
+}
+
+.card-num
+{
+
+}
 /* match_the_number_cards.html Styles END */
 
 
 /* Media Styles START */
+@media (max-width: 54.0625rem) /* Equivalent to 865px */
+{
+    /* Header Styles START */
+    .header-links a
+    {
+        display: block;
+    }
+    /* Header Styles END */
+}
+
+@media (max-width: 26.875rem) /* Equivalent to 430px */
+{
+    /* Footer Styles START */
+    footer
+    {
+        flex-direction: column;
+    }
+
+    .copyright
+    {
+        margin-bottom: 1rem;
+    }
+    /* Footer Styles END */
+}
+
+
 @media (max-width: 23.75rem) /* Equivalent to 380px */
 {
     /* Header Styles START */
+    header
+    {
+        background-color: initial;
+    }
+
     .website-links
     {
         background-color: white;
@@ -362,6 +586,7 @@ footer
     {
         font-size: larger;
         padding-left: 0.25rem;
+        color: green;
     }
 
     .fa-bars
@@ -373,6 +598,17 @@ footer
     .active-fa-bars
     {
         color: lightgreen;
+    }
+
+    .header-menu
+    {
+        display: absolute;
+        margin-top: 1rem;
+    }
+
+    .header-menu a
+    {
+        display: block;
     }
     /* Header Styles END */
 }

@@ -5,23 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="website.css">
+    <script src="header_menu.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
+        <div class="overlay has-fade"></div>
+        
+        <nav class="website-links">
+            <a href="/">
+                <h1 class="website-title">Match-the-Number-Cards</h1>
+            </a>
 
+            <div class="header-links">
+                <a href="/">Home</a>
+                <a href="about.html">About</a>
+                <a href="how_to_play.html">How-to-Play</a>
+                <a href="match_the_number_cards.html">Play Game</a>
+            </div>
+
+            <i class="fa fa-bars" style="font-size: 1.875rem;"></i>
+        </nav>
+
+        <div class="header-menu has-fade">
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="how_to_play.html">How-to-Play</a>
+            <a href="match_the_number_cards.html">Play Game</a>
+        </div>
     </header>
 
     <!-- Main Section -->
-    <section>
-        <div>
+    <section class="content-section">
+        <div class="container about-container">
+            <h2 class="section-title">About Me</h2>
 
+            <div class="name-and-pfp-wrapper">
+                <h2 class="name">Paul-Vance Nixon Jr.</h2>
+                <img src="https://user-images.githubusercontent.com/42850145/110048488-8f7c3800-7d15-11eb-845e-55d0bd9f9c46.png"
+                alt="Paul-Vance Nixon picture" class="pfp">
+            </div>
+
+            <p class="profile-text">
+                Hello! I'm a motivated & persistent software and web developer who's determined to create high-quality products consumers will enjoy.
+                I'm currently job-hunting, so sharing this project will definitely help me achieve this goal.
+                Use the links below to contact me and/or view my other projects. Thanks for viewing this project!
+            </p>
+
+            <div class="social-links-wrapper">
+                <a href="https://www.linkedin.com/in/paul-vance-nixon-4043a0141/" class="fa fa-linkedin"></a>
+                <a href="https://github.com/Paul-Nixon" class="fa fa-github"></a>
+            </div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        
+        <span class="copyright">&copy; Paul-Vance Nixon Jr. All rights reserved.</span>
+
+        <div class="footer-social-links">
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-facebook"></a>
+        </div>
     </footer>
 </body>
 </html>
