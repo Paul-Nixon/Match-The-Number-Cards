@@ -203,6 +203,11 @@ header
 }
 
 /* Styles for the header's links */
+.header-links
+{
+    padding: 1rem;
+}
+
 .header-links a
 {
     display: inline-block;
@@ -227,6 +232,7 @@ header
 {
     cursor: pointer;
     display: none;
+    transition: color 200ms ease-in-out;
 }
 
 .header-menu
@@ -244,6 +250,13 @@ header
     text-align: center;
     padding: 0.625rem;
     color: black;
+    transition: color 250ms ease-in;
+}
+
+.header-menu a:hover
+{
+    color: white;
+    background-color: black;
 }
 /* Header Styles END */
 
@@ -257,6 +270,65 @@ footer
 
 
 /* index.html Styles START */
+.intro-container
+{
+
+}
+
+.cta-wrapper
+{
+
+}
+
+.intro-title
+{
+
+}
+
+.subtitle
+{
+
+}
+
+.btn-wrapper
+{
+
+}
+
+.game-link-btn, .about-link-btn
+{
+
+}
+
+.game-link-btn
+{
+
+}
+
+.game-link-btn:hover
+{
+
+}
+
+.about-link-btn
+{
+
+}
+
+.about-link-btn:hover
+{
+
+}
+
+.img-wrapper
+{
+
+}
+
+.game-example-img
+{
+    
+}
 /* index.html Styles END */
 
 
@@ -280,6 +352,7 @@ footer
     {
         background-color: white;
     }
+
     .header-links
     {
         display: none;
@@ -299,12 +372,7 @@ footer
 
     .active-fa-bars
     {
-        color: green;
-    }
-    
-    .header-menu a:hover
-    {
-        
+        color: lightgreen;
     }
     /* Header Styles END */
 }
