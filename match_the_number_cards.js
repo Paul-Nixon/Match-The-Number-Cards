@@ -47,8 +47,20 @@ function generateCardNumber()
     let cards = document.querySelector(".grid-flip-card");
     let num = Math.floor(Math.random() * 11);
 
-    // Initialize a card w/the number.
-    cards[Math.floor(Math.random() * 4)].innerText = "" + num;
+    // Initialize two cards with the number.
+    let firstCard = cards.splice(Math.floor(Math.random() * 4), 1);
+    firstCard.querySelector(".flip-card-back").innerText = "" + num;
+    let secondCard = cards.splice(Math.floor(Math.random() * 3), 1);
+    secondCard.querySelector(".flip-card-back").innerText = "" + num;
 
-    // Initialize another card w/the number.
+    // Initialize the remaining cards with a different number.
+    cards.forEach(card => {
+        num = Math.floor(Math.random() * 11);
+        while (num === Number.parseInt(firstCard.querySelector(".flip-card-back").innerText))
+        {
+            num = Math.floor(Math.random() * 11);
+        }
+        card.querySelector(".flip-card-back").innerText = "" + num;
+    })
+
 }
