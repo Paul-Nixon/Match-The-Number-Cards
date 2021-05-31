@@ -503,7 +503,7 @@ footer, .footer-social-links
     align-items: center;
 }
 
-.score, .score-label, .multiplier, .multiplier-label
+.score, .score-label, .tries, .tries-label
 {
     font-weight: bold;
     color: white;
@@ -515,7 +515,7 @@ footer, .footer-social-links
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3.75rem; /* Equivalent to 60px */
+    margin-bottom: 1.875rem; /* Equivalent to 30px */
     width: 35%;
 }
 
@@ -533,11 +533,15 @@ footer, .footer-social-links
 {
     width: 12.5rem;
     height: 12.5rem;
-    -webkit-perspective: 5rem;
-    -moz-perspective: 5rem;
-    -o-perspective: 5rem;
-    perspective: 5rem;
+    -webkit-perspective: 62.5rem;
+    -moz-perspective: 62.5rem;
+    -o-perspective: 62.5rem;
+    perspective: 62.5rem;
     cursor: pointer;
+    -webkit-transition: -webkit-transform 600ms;
+    -moz-transition: -moz-transform 600ms;
+    -o-transition: -o-transform 600ms;
+    transition: transform 600ms;
 }
 
 .flip-card-inner
@@ -546,14 +550,15 @@ footer, .footer-social-links
     width: 100%;
     height: 100%;
     text-align: center;
-    -webkit-transition: -webkit-transform 1s;
-    -moz-transition: -moz-transform 1s;
-    -o-transition: -o-transform 1s;
-    transition: transform 1s;
+    -webkit-transition: -webkit-transform 600ms;
+    -moz-transition: -moz-transform 600ms;
+    -o-transition: -o-transform 600ms;
+    transition: transform 600ms;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    transform: rotateY(180deg);
 }
 
 .flip-card-inner:hover
@@ -563,21 +568,21 @@ footer, .footer-social-links
 
 .flip-card-front, .flip-card-back
 {
-    position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    position: absolute;
 }
 
-.img-card
+.flip-card-front
 {
-    width: 100%;
-    height: 100%;
     background-image: url(Images/img-card.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    transform: rotateY(-180deg);
+
 }
 
 .flip-card-back
@@ -593,7 +598,12 @@ footer, .footer-social-links
 
 .flipped
 {
-    transform: rotateY( 180deg );
+    transform: rotateY(-180deg);
+}
+
+.hide-during-game, .hide-during-postgame
+{
+    display: none;
 }
 /* match_the_number_cards.html Styles END */
 
