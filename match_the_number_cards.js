@@ -19,13 +19,22 @@ function ready()
     const scoreboard = 
     {
         score: 0,
-        tries: 3
+        tries: 3,
+        matchingNum: 0
     };
 
     // Add an event listener to each of the cards that'll call evaluateChoice().
     document.querySelectorAll(".grid-flip-card").forEach(card => {
-        card.addEventListener("click", (event) => {
-            evaluateChoice(event.currentTarget, scoreboard);
+        card.addEventListener("click", () => {
+            /*
+                If a card hasn't been flipped, flip it & call evaluateChoice(card, scoreboard).
+                Also, ensure the player can only flip it once.
+            */
+            if (!card.querySelector(".flip-card-inner").classList.contains("flipped"))
+            {
+                card.querySelector(".flip-card-inner").classList.add("flipped");
+                evaluateChoice(card, scoreboard);
+            }
         })
     });
 }
@@ -35,8 +44,18 @@ function ready()
 */
 function evaluateChoice(card, scoreboard)
 {
-    // Flip the chosen card.
-    card.classList.toggle("flipped");
+    /*
+        Check if the clicked card's the only one that's been flipped. If not, check
+        if it matches another flipped card.
+    */
+   if (document.querySelectorAll(".flip-card-inner.flipped").length === 1)
+   {
+       // Initialize the scoreboard object's matchingNum attribute w/ the card's number.
+   }
+   else
+   {
+       // 
+   }
 }
 
 /*
