@@ -506,17 +506,25 @@ footer, .footer-social-links
 .score, .score-label, .tries, .tries-label
 {
     font-weight: bold;
-    color: white;
+    color: black;
     font-size: 1.5em;
 }
 
-.score-and-tries-wrapper
+.scoreboard
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.875rem; /* Equivalent to 30px */
     width: 35%;
+    margin-top: 1.25rem;
+}
+
+.notifier-wrapper
+{
+    font-weight: bold;
+    color: white;
+    font-size: 1.75em;
+    margin-top: 1.25rem;
 }
 
 .cards-container
