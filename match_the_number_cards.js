@@ -16,7 +16,7 @@ function ready()
     const scoreboard = 
     {
         score: 0,
-        tries: 3,
+        tries: 5,
         numToFind: 0
     };
 
@@ -56,9 +56,7 @@ function evaluateChoice(flippedCard, scoreboard)
          re-flip the cards that're already flipped, and call generateCardNumber(scoreboard)
          to reset each card's respective number.
        */
-        if (document.querySelectorAll(".flipped").length >= 2
-            && bothMatchingCardsFlipped(flippedCard, Array.from(document.querySelectorAll(".flipped")),
-            scoreboard.numToFind))
+        if (document.querySelectorAll(".flipped").length >= 2 && bothMatchingCardsFlipped(scoreboard.numToFind))
         {
             // Increase the score.
             scoreboard.score = scoreboard.score + 10;
@@ -68,11 +66,11 @@ function evaluateChoice(flippedCard, scoreboard)
             setTimeout(() => {
                 document.querySelectorAll(".flipped").forEach(card => {
                     card.classList.remove("flipped");
-                })
+                });
             }, 2000);
 
             // Call generateCardNumber(scoreboard) to reset each card's respective number.
-            setTimeout(generateCardNumber(scoreboard), 3000);
+            setTimeout(() => {generateCardNumber(scoreboard)}, 2200);
         }
    }
    else
@@ -100,8 +98,10 @@ function generateCardNumber(scoreboard)
     // Initialize two cards with the number.
     let firstCard = cards.splice(Math.floor(Math.random() * 4), 1);
     firstCard[0].querySelector(".flip-card-back").innerText = num;
+    firstCard[0].querySelector(".flip-card-back").style.backgroundColor = "green";
     let secondCard = cards.splice(Math.floor(Math.random() * 3), 1);
     secondCard[0].querySelector(".flip-card-back").innerText = num;
+    secondCard[0].querySelector(".flip-card-back").style.backgroundColor = "green";
 
     // Initialize the remaining cards with a different number.
     cards.forEach(card => {
@@ -111,37 +111,42 @@ function generateCardNumber(scoreboard)
             num = Math.floor(Math.random() * 11);
         }
         card.querySelector(".flip-card-back").innerText = num;
+        card.querySelector(".flip-card-back").style.backgroundColor = "red";
     });
 }
 
 /*
     
 */
-function bothMatchingCardsFlipped(flippedCard, flippedCardsArray, numToFind)
+function bothMatchingCardsFlipped(numToFind)
 {
     /*
-        Create a boolean variable & an array containing all the flipped cards except
-        the one that was just flipped.
+        Create a variable which stores the number of cards containing the number the player
+        must find. 
     */
-    let modifiedArray = flippedCardsArray.slice(flippedCardsArray.indexOf(flippedCard), 1);
-    let matchingCards = false;
+    let num_matching_cards = 0;
 
-    // Check if the flipped card matches the other flipped card(s).
-    modifiedArray.forEach(card => {
-        if (Number.parseInt(card.querySelector(".flip-card-back").innerText) === numToFind
-            && Number.parseInt(flippedCard.querySelector(".flip-card-back").innerText) === numToFind)
+    /*
+        Loop through the nodelist of flipped cards to find the number of cards containing the
+        number the player must find.
+    */
+    document.querySelectorAll(".flipped").forEach(card => {
+        if (Number.parseInt(card.querySelector(".flip-card-back").innerText) === numToFind)
         {
-            matchingCards = true;
+            num_matching_cards = num_matching_cards + 1;
         }
     });
 
-    // Return the boolean variable.
-    return matchingCards;
-}
-
-function flipCards()
-{
-    document.querySelectorAll(".flipped").forEach(card => {
-        card.classList.remove("flipped");
-    })
+    /*
+        If the number of cards containing the number the player must find equals 2, return true.
+        Else, return false.
+    */
+    if (num_matching_cards === 2)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
