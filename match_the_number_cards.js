@@ -42,23 +42,37 @@ function ready()
 /*
     
 */
-function evaluateChoice(card, scoreboard)
+function evaluateChoice(flippedCard, scoreboard)
 {
     /*
         Check if the flipped card's number matches the number that's supposed to be found.
         If so, check if the other card that has the number has been flipped. Otherwise,
         reduce the number of tries by 1.
     */
-   if (Number.parseInt(card.querySelector(".flip-card-back").innerText) === scoreboard.numToFind)
+   if (Number.parseInt(flippedCard.querySelector(".flip-card-back").innerText) === scoreboard.numToFind)
    {
        /*
          If the other card that has the number is also flipped, increase the score by 10,
          re-flip the cards that're already flipped, and call generateCardNumber(scoreboard)
          to reset each card's respective number.
        */
-        if (document.querySelectorAll(".flipped").length >= 2 && bothMatchingCardsFlipped())
+        if (document.querySelectorAll(".flipped").length >= 2
+            && bothMatchingCardsFlipped(flippedCard, Array.from(document.querySelectorAll(".flipped")),
+            scoreboard.numToFind))
         {
-            // 
+            // Increase the score.
+            scoreboard.score = scoreboard.score + 10;
+            document.querySelector(".score").innerText = scoreboard.score;
+
+            // Re-flip the cards that're already flipped.
+            setTimeout(() => {
+                document.querySelectorAll(".flipped").forEach(card => {
+                    card.classList.remove("flipped");
+                })
+            }, 2000);
+
+            // Call generateCardNumber(scoreboard) to reset each card's respective number.
+            setTimeout(generateCardNumber(scoreboard), 3000);
         }
    }
    else
@@ -103,13 +117,31 @@ function generateCardNumber(scoreboard)
 /*
     
 */
-function bothMatchingCardsFlipped()
+function bothMatchingCardsFlipped(flippedCard, flippedCardsArray, numToFind)
 {
-    // Get all the flipped cards.
-    let flippedCards = Array.from(document.querySelectorAll(".flipped"));
-    let flippedCard = flippedCards.splice(0, 1);
+    /*
+        Create a boolean variable & an array containing all the flipped cards except
+        the one that was just flipped.
+    */
+    let modifiedArray = flippedCardsArray.slice(flippedCardsArray.indexOf(flippedCard), 1);
     let matchingCards = false;
 
     // Check if the flipped card matches the other flipped card(s).
-    
+    modifiedArray.forEach(card => {
+        if (Number.parseInt(card.querySelector(".flip-card-back").innerText) === numToFind
+            && Number.parseInt(flippedCard.querySelector(".flip-card-back").innerText) === numToFind)
+        {
+            matchingCards = true;
+        }
+    });
+
+    // Return the boolean variable.
+    return matchingCards;
+}
+
+function flipCards()
+{
+    document.querySelectorAll(".flipped").forEach(card => {
+        card.classList.remove("flipped");
+    })
 }
