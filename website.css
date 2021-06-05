@@ -184,7 +184,7 @@ a
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content /* A modal's content in its center */
+.modal-content
 {
     position: relative;
     background-color: #fefefe;
@@ -199,7 +199,7 @@ a
 
 }
 
-/* Animation for a modal to appear from the top of the screen */
+/* Animation for the modal to appear from the top of the screen */
 @-webkit-keyframes animatetop
 {
     from
@@ -230,7 +230,7 @@ a
     }
 }
 
-.close /* For a modal's close button */
+.close
 {
     color: white;
     float: right;
@@ -244,15 +244,37 @@ a
     color: black;
 }
 
-.modal-header, .modal-body
+.modal-header, .modal-body, .modal-footer
 {
     padding: 2px 16px;
 }
 
-.modal-header
+.modal-header, .modal-footer
 {
     background-color: #5A0016;
     color: white;
+}
+
+.modal-footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-modal
+{
+    font-size: 1.25em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: brown;
+    color: white;
+    border: 3px solid #98ff98;
+}
+
+.modal-btn:hover
+{
+    background-color: rgb(138, 33, 33);
 }
 /* Modal Styles END */
 
