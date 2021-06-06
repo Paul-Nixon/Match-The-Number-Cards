@@ -8,11 +8,20 @@ else
 }
 
 /*
-
+    Function ready() creates an object containing the player's current score and number of tries &
+    the number they must find, calls generateCardNumber(scoreboard) to generate a number for each
+    card, and adds an event listener to each of them that flips them if they weren't already flipped and
+    subsequently calls evaluateChoice(card, scoreboard).
+    Precondition: The webpage's fully rendered.
+    Postcondition: The scoreboard object & event listeners for each card are created, and each card's
+    backside has a number.
 */
 function ready()
 {
-    // Create an object which stores the player's score and number of tries.
+    /*
+        Create an object which stores the player's score, number of remaining tries, and
+        the number they must find.
+    */
     const scoreboard = 
     {
         score: 0,
@@ -42,7 +51,14 @@ function ready()
 }
 
 /*
-    
+    Function evaluateChoice(flippedCard, scoreboard) evaluates the card the player flipped by
+    checking its number. If its number matches the number that's supposed to be found and the other card
+    containing the same number is also flipped, the score increases by 10, the number of tries increases by 1,
+    and re-flips the cards that were already flipped. Otherwise, the number of tries is reduced by 1.
+    Precondition: A card was clicked on.
+    Postconditon: If both cards w/the number that's supposed to be found are flipped, the score increases by 10,
+    the number of tries increases by 1, and re-flips the cards that were already flipped. Otherwise,
+    the number of tries is reduced by 1.
 */
 function evaluateChoice(flippedCard, scoreboard)
 {
@@ -54,12 +70,22 @@ function evaluateChoice(flippedCard, scoreboard)
    if (parseInt(flippedCard.querySelector(".flip-card-back").innerText) === scoreboard.numToFind)
    {
        /*
-         If the other card that has the number is also flipped, increase the score by 10,
-         re-flip the cards that're already flipped, and call generateCardNumber(scoreboard)
-         to reset each card's respective number.
+         If the other card that has the number is also flipped, increase the score by 10 and
+         number of tries by 1, re-flip the cards that're already flipped, and
+         call generateCardNumber(scoreboard) to reset each card's respective number.
        */
         if (document.querySelectorAll(".flipped").length >= 2 && bothMatchingCardsFlipped(scoreboard.numToFind))
         {
+            // Flip the cards that weren't flipped.
+            setTimeout(() => {
+                document.querySelectorAll(".grid-flip-card").forEach(card => {
+                    if (!card.querySelector(".flip-card-inner").classList.contains("flipped"))
+                    {
+                        card.querySelector(".flip-card-inner").classList.add("flipped");
+                    }
+                })
+            }, 500);
+
             // Increase the score by 10 and the number of tries by 1.
             scoreboard.score = scoreboard.score + 10;
             document.querySelector(".score").innerText = scoreboard.score;
@@ -91,12 +117,18 @@ function evaluateChoice(flippedCard, scoreboard)
 }
 
 /*
-    
+    Function generateCardNumber(scoreboard) generates the number the player must find,
+    initializes it to two random cards and the scoreboard object, and initializes the
+    other two cards w/a random number.
+    Precondition: Either the webpage fully loaded or the player flipped the two cards that
+    contained the number the player must find.
+    Postcondition: Two cards contain the number the player must find and the other two contain
+    a random number.
 */
 function generateCardNumber(scoreboard)
 {
     /*
-        Get the cards, randomly generate a number, assign it to the scoreboard's
+        Get the cards, generate a random number, assign it to the scoreboard's
         numToFind property, & render it where the notifier's located on the webpage.
     */
     let cards = Array.from(document.querySelectorAll(".grid-flip-card"));
@@ -125,7 +157,10 @@ function generateCardNumber(scoreboard)
 }
 
 /*
-    
+    Function bothMatchingCardsFlipped(numToFind) checks if both cards which contain the number
+    the player must find have been flipped. If so, it returns true. Else, it returns false.
+    Precondition: At least two cards have been flipped.
+    Postcondition: The function either returns true or false.
 */
 function bothMatchingCardsFlipped(numToFind)
 {
@@ -161,7 +196,12 @@ function bothMatchingCardsFlipped(numToFind)
 }
 
 /*
-    
+    Function renderPostgameModal(scoreboard) renders a modal displaying the player's final score,
+    high score, & a message telling them to either click its button to replay the game or click the close
+    icon to load About.html.
+    Precondition: The number of tries reached 0.
+    Postcondition: A modal is rendered and the player chooses to either load About.html or replay
+    the game.
 */
 function renderPostgameModal(scoreboard)
 {
@@ -226,9 +266,6 @@ function renderPostgameModal(scoreboard)
         re-flip the cards that were flipped before the game ended.
     */
     document.querySelector(".btn-modal").addEventListener("click", () => {
-        // Remove the modal from the screen.
-        modal.style.display = "none";
-
         // Reset the scoreboard.
         scoreboard.score = 0;
         scoreboard.tries = 2;
@@ -236,13 +273,14 @@ function renderPostgameModal(scoreboard)
         document.querySelector(".tries").innerText = scoreboard.tries;
 
         // Reflip the cards that were flipped before the game ended.
-        setTimeout(() => {
-            document.querySelectorAll(".flipped").forEach(card => {
-                card.classList.remove("flipped");
-            });
-        }, 1000);
+        document.querySelectorAll(".flipped").forEach(card => {
+            card.classList.remove("flipped");
+        });
 
         // Call generateCardNumber(scoreboard) to reset each card's respective number.
-        setTimeout(() => {generateCardNumber(scoreboard)}, 1200);
+        setTimeout(() => {generateCardNumber(scoreboard)}, 500);
+
+        // Remove the modal from the screen.
+        setTimeout(() => {modal.style.display = "none";}, 500);
     })
 }
