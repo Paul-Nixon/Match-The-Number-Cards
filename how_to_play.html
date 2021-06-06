@@ -5,23 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How-to-Play</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="website.css">
+    <script src="header_menu.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
+        <div class="overlay has-fade"></div>
+        
+        <nav class="website-links">
+            <a href="/">
+                <h1 class="website-title">Match-the-Number-Cards</h1>
+            </a>
 
+            <div class="header-links">
+                <a href="/">Home</a>
+                <a href="about.html">About</a>
+                <a href="how_to_play.html">How-to-Play</a>
+                <a href="match_the_number_cards.html">Play Game</a>
+            </div>
+
+            <i class="fa fa-bars" style="font-size: 1.875rem;"></i>
+        </nav>
+
+        <div class="header-menu has-fade">
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="how_to_play.html">How-to-Play</a>
+            <a href="match_the_number_cards.html">Play Game</a>
+        </div>
     </header>
 
     <!-- Main Section -->
-    <section>
-        <div>
+    <section class="content-section">
+        <div class="container htp-container">
+            <!-- Main Content -->
+            <div class="htp-main-content">
+                <h2 class="webpage-title">How-to-Play</h2>
 
+                <div class="htp-content-wrapper">
+                    <div class="htp-content">
+                        <h2 class="section-title">Layout</h2>
+
+                        <ul class="htp-content-list">
+                            <li>
+                                Scoreboard: Above the notifier; Contains the current score and
+                                number of remaining tries
+                            </li>
+                            <li>
+                                Notifier: Between the scoreboard & cards; Lets the player know
+                                what number they need to find
+                            </li>
+                            <li>
+                                Cards: Below the notifier; Two of them contains the number
+                                must find, the others contain a random number
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="htp-content">
+                        <h2 class="section-title">Gameplay</h2>
+
+                        <div class="htp-sub-content">
+                            <h3 class="htp-sub-title">Flipping a Card</h3>
+
+                            <p class="explanation-text">
+                                Click/tap a card to flip it. If it contains the number mentioned in
+                                the notifier, its backside will be colored green. Otherwise, its backside
+                                will be colored red and the number of tries will be reduced by 1.
+                            </p>
+                        </div>
+
+                        <div class="htp-sub-content">
+                            <h3 class="htp-sub-title">Correctly Finding a Number</h3>
+
+                            <p class="explanation-text">
+                                If the player flips both cards which contain the number mentioned in
+                                the notifier, the score increases by 10, the number of tries increases by 1,
+                                the cards that weren't flipped are flipped to show what their number was, and
+                                they're subsequently re-flipped w/new numbers.
+                            </p>
+                        </div>
+
+                        <div class="htp-sub-content">
+                            <h3 class="htp-sub-title">Postgame</h3>
+
+                            <p class="explanation-text">
+                                If the number of tries reaches 0, a modal/pop-up window will appear.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="htp-nav">
+
+            </nav>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        
+        <span class="copyright">&copy; Paul-Vance Nixon Jr. All rights reserved.</span>
+
+        <div class="footer-social-links">
+            <a href="https://twitter.com/PeacefulPaladin" class="fa fa-twitter"></a>
+            <a href="https://www.linkedin.com/in/paul-vance-nixon-4043a0141/" class="fa fa-linkedin"></a>
+            <a href="https://github.com/Paul-Nixon" class="fa fa-github"></a>
+        </div>
     </footer>
 </body>
 </html>
