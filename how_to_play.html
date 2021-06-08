@@ -40,13 +40,29 @@
     <!-- Main Section -->
     <section class="content-section">
         <div class="container htp-container">
+            <!-- Navigation -->
+            <nav class="htp-nav">
+                <h2 class="nav-title">Navigation</h2>
+                <ul class="htp-nav-list">
+                    <li><a href="#layout">Layout</a></li>
+                    <li>
+                        <a href="#gameplay">Gameplay</a>
+                        <ul>
+                            <li><a href="#flipping-a-card">Flipping a Card</a></li>
+                            <li><a href="#finding-a-number">Layout</a></li>
+                            <li><a href="#postgame">Postgame</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
             <!-- Main Content -->
             <div class="htp-main-content">
                 <h2 class="webpage-title">How-to-Play</h2>
 
                 <div class="htp-content-wrapper">
                     <div class="htp-content">
-                        <h2 class="section-title">Layout</h2>
+                        <h2 id="layout" class="section-title">Layout</h2>
 
                         <ul class="htp-content-list">
                             <li>
@@ -54,7 +70,7 @@
                                 number of remaining tries
                             </li>
                             <li>
-                                Notifier: Between the scoreboard & cards; Lets the player know
+                                Notifier: Between the scoreboard &amp; cards; Lets the player know
                                 what number they need to find
                             </li>
                             <li>
@@ -65,10 +81,10 @@
                     </div>
 
                     <div class="htp-content">
-                        <h2 class="section-title">Gameplay</h2>
+                        <h2 id="gameplay" class="section-title">Gameplay</h2>
 
                         <div class="htp-sub-content">
-                            <h3 class="htp-sub-title">Flipping a Card</h3>
+                            <h3 id="flipping-a-card" class="htp-sub-title">Flipping a Card</h3>
 
                             <p class="explanation-text">
                                 Click/tap a card to flip it. If it contains the number mentioned in
@@ -78,7 +94,7 @@
                         </div>
 
                         <div class="htp-sub-content">
-                            <h3 class="htp-sub-title">Correctly Finding a Number</h3>
+                            <h3 id="finding-a-number" class="htp-sub-title">Correctly Finding a Number</h3>
 
                             <p class="explanation-text">
                                 If the player flips both cards which contain the number mentioned in
@@ -89,20 +105,17 @@
                         </div>
 
                         <div class="htp-sub-content">
-                            <h3 class="htp-sub-title">Postgame</h3>
+                            <h3 id="postgame" class="htp-sub-title">Postgame</h3>
 
                             <p class="explanation-text">
-                                If the number of tries reaches 0, a modal/pop-up window will appear.
+                                If the number of tries reaches 0, a modal/pop-up window will appear and display
+                                the player's final score, high score, &amp; a message telling them to either click the
+                                close button below it to load the About page or the button below it to replay the game.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Navigation -->
-            <nav class="htp-nav">
-
-            </nav>
         </div>
     </section>
 

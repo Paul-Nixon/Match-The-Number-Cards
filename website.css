@@ -66,6 +66,12 @@ a
     text-transform: uppercase;
 }
 
+.img
+{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
 /* Styles for fade-in & fade-out animations */
 .has-fade 
 {
@@ -477,31 +483,31 @@ footer, .footer-social-links
 .game-link-btn
 {
     margin-right: 0.5rem;
-    background-color: blue;
-    color: darkgrey;
-    border: 3px solid yellow;
+    background-color: orange;
+    color: #F2F4CB; /* Mimosa */
+    border: 3px solid brown;
 }
 
 .game-link-btn:hover
 {
-    background-color: rgb(38, 38, 138);
+    background-color: #ff8c00; /* Dark orange */
 }
 
 .about-link-btn
 {
-    background-color: #E4A598;
-    color: brown;
-    border: 3px solid blue;
+    background-color: red;
+    color: yellow;
+    border: 3px solid green;
 }
 
 .about-link-btn:hover
 {
-    background-color: #ac847c;
+    background-color: #8B0000; /* Dark red */
 }
 
 .img-wrapper
 {
-    height: 31.25rem;
+    height: 24.625rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -511,13 +517,10 @@ footer, .footer-social-links
 
 .game-example-img
 {
-    max-height: 70vh;
+    max-height: 100%;
     min-width: 30vw;
     background-image: url();
     flex-grow: 1;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
 }
 /* index.html Styles END */
 
@@ -595,44 +598,50 @@ footer, .footer-social-links
     height: 100vh;
 }
 
-.section-title, .htp-content-list li, .explanation-text, .htp-sub-title
+.section-title, .htp-content-list li, .explanation-text, .htp-sub-title, .nav-title,
+.htp-nav-list li a
 {
     color: white;
 }
 
-.htp-main-content
+.htp-nav
 {
-
+    padding: 0 3rem;
+    height: 100%;
 }
 
-.htp-content-wrapper
+.nav-title
 {
-
+    font-size: 1.875rem;
 }
 
-.htp-content
+.htp-nav-list li a
 {
-
+    font-size: 1.25rem;
 }
 
-.section-title
+.htp-nav-list li a:hover
 {
-
+    opacity: 0.6;
 }
 
-.htp-content-list li
+.htp-main-content, .htp-content-wrapper, .htp-content
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.section-title, .htp-sub-title
+{
+    margin-bottom: 0.5rem;
 }
 
 .explanation-text
 {
-
-}
-
-.htp-nav
-{
-
+    margin: 0;
+    text-align: left;
 }
 /* how_to_play.html Styles END */
 
@@ -648,11 +657,15 @@ footer, .footer-social-links
     align-items: center;
 }
 
-.score, .score-label, .tries, .tries-label
+.score, .score-label, .tries, .tries-label, .multiplier, .multiplier-label
 {
     font-weight: bold;
-    color: black;
     font-size: 1.5em;
+}
+
+.score, .score-label, .tries, .tries-label, .multiplier, .multiplier-label, .notifier-wrapper
+{
+    color: white;
 }
 
 .scoreboard
@@ -667,7 +680,6 @@ footer, .footer-social-links
 .notifier-wrapper
 {
     font-weight: bold;
-    color: white;
     font-size: 1.75em;
     margin-bottom: 2.5rem;
 }

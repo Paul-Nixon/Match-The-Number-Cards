@@ -26,6 +26,7 @@ function ready()
     {
         score: 0,
         tries: 2,
+        multiplier: 1,
         numToFind: 0
     };
     sessionStorage.setItem("highScore", "0"); // Stores the player's high score
