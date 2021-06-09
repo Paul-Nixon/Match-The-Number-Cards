@@ -8,10 +8,10 @@ else
 }
 
 /*
-    Function ready() creates an object containing the player's current score and number of tries &
-    the number they must find, calls generateCardNumber(scoreboard) to generate a number for each
-    card, and adds an event listener to each of them that flips them if they weren't already flipped and
-    subsequently calls evaluateChoice(card, scoreboard).
+    Function ready() creates an object containing the player's current score and number of tries, a
+    multiplier, & the number they must find, calls generateCardNumber(scoreboard) to generate a number
+    for each card, and adds an event listener to each of them that flips them if they weren't already
+    flipped and subsequently calls evaluateChoice(card, scoreboard).
     Precondition: The webpage's fully rendered.
     Postcondition: The scoreboard object & event listeners for each card are created, and each card's
     backside has a number.
@@ -25,12 +25,11 @@ function ready()
     const scoreboard = 
     {
         score: 0,
-        tries: 2,
+        tries: 5,
         multiplier: 1,
         numToFind: 0
     };
     sessionStorage.setItem("highScore", "0"); // Stores the player's high score
-    document.querySelector(".tries").innerText = scoreboard.tries;
 
     // Call generateCardNumber() to generate a number for each card.
     generateCardNumber(scoreboard);
@@ -87,11 +86,21 @@ function evaluateChoice(flippedCard, scoreboard)
                 })
             }, 500);
 
-            // Increase the score by 10 and the number of tries by 1.
-            scoreboard.score = scoreboard.score + 10;
+            // Increase the score, the number of tries, and the multiplier.
+            if (scoreboard.multiplier === 1)
+            {
+                scoreboard.score = scoreboard.score + 10;
+                scoreboard.multiplier = 2;
+            }
+            else
+            {
+                scoreboard.score = scoreboard.score + (scoreboard.multiplier * 10);
+                scoreboard.multiplier = scoreboard.multiplier + 1;
+            }
             document.querySelector(".score").innerText = scoreboard.score;
             scoreboard.tries = scoreboard.tries + 1;
             document.querySelector(".tries").innerText = scoreboard.tries;
+            document.querySelector(".multiplier").innerText = scoreboard.multiplier + "x";
 
             // Re-flip the cards that're already flipped.
             setTimeout(() => {
@@ -106,7 +115,12 @@ function evaluateChoice(flippedCard, scoreboard)
    }
    else
    {
-       // Reduce the number of tries by 1. If it reaches 0, call renderPostgameModal().
+       // Reduce the multiplier & number of tries by 1. If it reaches 0, call renderPostgameModal().
+       if (scoreboard.multiplier > 1)
+       {
+           scoreboard.multiplier = scoreboard.multiplier - 1;
+           document.querySelector(".multiplier").innerText = scoreboard.multiplier + "x";
+       }
        scoreboard.tries = scoreboard.tries - 1;
        document.querySelector(".tries").innerText = scoreboard.tries;
 
@@ -269,9 +283,11 @@ function renderPostgameModal(scoreboard)
     document.querySelector(".btn-modal").addEventListener("click", () => {
         // Reset the scoreboard.
         scoreboard.score = 0;
-        scoreboard.tries = 2;
+        scoreboard.tries = 5;
+        scoreboard.multiplier = 1;
         document.querySelector(".score").innerText = 0;
-        document.querySelector(".tries").innerText = scoreboard.tries;
+        document.querySelector(".tries").innerText = 5;
+        document.querySelector(".multiplier").innerText = 1 + "x";
 
         // Reflip the cards that were flipped before the game ended.
         document.querySelectorAll(".flipped").forEach(card => {

@@ -507,7 +507,8 @@ footer, .footer-social-links
 
 .img-wrapper
 {
-    height: 24.625rem;
+    height: 25.25rem;
+    width: 25rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -517,10 +518,12 @@ footer, .footer-social-links
 
 .game-example-img
 {
-    max-height: 100%;
-    min-width: 30vw;
-    background-image: url();
+    height: 100%;
+    width: 100%;
+    background-image: url(https://user-images.githubusercontent.com/42850145/121260771-610f7b00-c877-11eb-8877-39d54e263c18.PNG);
     flex-grow: 1;
+    border: 2px solid black;
+    flex-shrink: 0;
 }
 /* index.html Styles END */
 
@@ -598,31 +601,9 @@ footer, .footer-social-links
     height: 100vh;
 }
 
-.section-title, .htp-content-list li, .explanation-text, .htp-sub-title, .nav-title,
-.htp-nav-list li a
+.section-title, .htp-content-list li, .explanation-text, .htp-sub-title
 {
     color: white;
-}
-
-.htp-nav
-{
-    padding: 0 3rem;
-    height: 100%;
-}
-
-.nav-title
-{
-    font-size: 1.875rem;
-}
-
-.htp-nav-list li a
-{
-    font-size: 1.25rem;
-}
-
-.htp-nav-list li a:hover
-{
-    opacity: 0.6;
 }
 
 .htp-main-content, .htp-content-wrapper, .htp-content
@@ -689,6 +670,7 @@ footer, .footer-social-links
     display: grid;
     grid-template-columns: repeat(4, 18.75rem);
     justify-content: center;
+    column-gap: 0.3125rem;
     align-items: center;
     width: 100%;
 }
@@ -765,6 +747,39 @@ footer, .footer-social-links
 
 
 /* Media Styles START */
+@media (max-width: 63.75rem) /* Equivalent to 1020px */
+{
+    /* how_to_play.html Styles START */
+    .scoreboard
+    {
+        flex-direction: column;
+    }
+    
+    .score-wrapper, .tries-wrapper
+    {
+        margin-bottom: 1rem;
+    }
+
+    .score, .score-label, .tries, .tries-label, .multiplier, .multiplier-label
+    {
+        text-align: center;
+    }
+
+    .cards-container
+    {
+        grid-template-columns: repeat(2, 12.5rem);
+        grid-template-rows: repeat(2, 12.5rem);
+        row-gap: 0.3125rem;
+    }
+
+    .grid-flip-card
+    {
+        width: 6.25rem;
+        height: 6.25rem;
+    }
+    /* how_to_play.html Styles END */
+}
+
 @media (max-width: 54.0625rem) /* Equivalent to 865px */
 {
     /* Header Styles START */
@@ -773,6 +788,55 @@ footer, .footer-social-links
         display: block;
     }
     /* Header Styles END */
+}
+
+
+@media (max-width: 47.5rem) /* Equivalent to 760px */
+{
+    /* Header Styles START */
+    .intro-container
+    {
+        flex-direction: column;
+    }
+
+    .img-wrapper
+    {
+        max-height: 18.75rem;
+        width: 18.75rem;
+    }
+
+    .cta-wrapper
+    {
+        align-items: center;
+    }
+
+    .subtitle
+    {
+        text-align: center;
+    }
+    /* Header Styles END */
+}
+
+@media (max-width: 31.875rem) /* Equivalent to 510px */
+{
+    /* about.html Styles START */
+    .profile-text
+    {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: small;
+    }
+
+    .social-links-wrapper
+    {
+        margin-bottom: 1rem;
+    }
+
+    .social-links-wrapper .fa-linkedin, .social-links-wrapper .fa-github
+    {
+        font-size: larger;
+    }
+    /* about.html Styles END */
 }
 
 @media (max-width: 26.875rem) /* Equivalent to 430px */
