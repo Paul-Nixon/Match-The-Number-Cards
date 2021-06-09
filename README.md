@@ -1,7 +1,7 @@
 # **Description**
 This project was built implementing HTML5, CSS3, & JavaScript.
 
-My main goals while building this project was to create an animated mobile header menu & employ the grid display for the cards. Although I did succeed, the website on mobile is definitely flawed. Part of that is due to me not focusing on mobile design as much as I should've but at least I gained some experience with Grid & animations. As always, I hope everyone enjoys the game I created ;).<br></br>
+My main goals while building this project was to create an animated mobile header menu & employ the grid display for the cards. Although I did succeed, the website on mobile is definitely flawed from a visual perspective. Part of that is due to me not focusing on mobile design as much as I should've, but at least I gained some experience with Grid & animations. As always, I hope everyone enjoys the game I created ;).<br></br>
 
 # **Screenshots**
 ## **Desktop**
